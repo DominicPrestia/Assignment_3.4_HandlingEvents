@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
 
 function App() {
+
+  let [price, setPrice] = useState(parseInt(0.00).toFixed(2))
+
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h1>Price Input App</h1>
+
+      <h3>Price: ${price}</h3>
+
+      <input
+        type="number"
+        min={0.00}
+        step={.01}
+        // value={price}
+        placeholder="Enter Price Here"
+        onChange={(event) => {
+          setPrice(event.target.valueAsNumber)
+        }
+      }
+      />
+
+
+    </>
   );
 }
 
